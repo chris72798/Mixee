@@ -1,4 +1,4 @@
 # Mixee
 Magnet Streaming
 
-Peerflix + Express + Socketio + Acidjs + Eztv + yts.to
+Peerflix + Peerflix-server + Express + Socket.io + Acidjs + Eztv + yts.to + nw.js
