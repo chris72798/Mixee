@@ -1,0 +1,24 @@
+{
+  "name": "mettux",
+  "version": "0.0.29",
+  "main": "dist/redirect.html",
+  "node-remote": "http://localhost:9000",
+  "author": {
+    "name": "ACID"
+  },
+  "description": "Streaming torrent client for node.js with web ui.",
+  "node-main": "server/bin.js",
+    "window": {
+    "icon": "icon.png",
+  "position": "mouse",
+    "toolbar": true,
+    "frame": true,
+    "width": 900,
+    "height": 750,
+    "min_width": 530,
+    "min_height": 440
+  },
+  "webkit": {
+    "plugin": true
+  }
+}
