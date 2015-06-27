@@ -8,7 +8,6 @@
     };
 
     var stack = $.model.stack ={
-    	empty_obj:$.tag('div').cl('scroll_box'),
     	data:[],
     	empty:[],
     	out:[],
@@ -31,9 +30,9 @@
             if($('#movieList')){
             	stack.scroll_container=$('#app');
             	stack.container=$('#movieList');
-            	$.model.veil(stack);
+            	//$.model.veil(stack);
             }
-        }.debounce(600),
+        }.debounce(300),
         header: function() {
             $('#app').scrollTop = 0;
         },
@@ -144,7 +143,7 @@
                 viewbottom = d.bottom,
                 eltop = e.top,
                 elbottom = e.bottom,
-                elmid = Math.round(((elbottom - eltop) / 2)),
+                elmid = Math.round(((elbottom - eltop) / 2)+eltop),
                 option = eltop >= viewtop;
 
             return (elbottom <= viewbottom && (option || elbottom >= viewtop)) || (eltop <= viewbottom && (option || elmid >= viewtop));
