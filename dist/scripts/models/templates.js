@@ -18,8 +18,9 @@
     //movie object
     var movieNode = $.toDOM('<div data-click="app.play" data-mouseover="tip.unpack" class="movie scroll_box trans-all">\
 		<div class="play"><i class="fa fa-play-circle"></i></div>\
-		<div class="rating slow"></div>\
-        <div class="movie-mpa"></div>\
+        <div class="color-bg"></div>\
+		<div class="rating"alt="Rating & MPA"></div>\
+        <div class="movie-mpa" alt="Genre, Runtime & Size"></div>\
         <div class="gloss"></div>\
 		<div class="bg"></div>\
 		</div>', 0)

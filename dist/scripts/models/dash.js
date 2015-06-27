@@ -34,6 +34,9 @@
 
     $.model('dash', function(reserve) {
 
+        $.model.stack.items=[];
+        $.model.stack.len=0;
+        
         if (compiled) {
             $id('app').clear().ap(compiled);
             $.model.resize.list.dashmenu();
@@ -41,6 +44,7 @@
         }
 
         compiled = body;
+
 
         $id('app').ap(compiled);
 

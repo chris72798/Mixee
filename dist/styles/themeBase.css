@@ -76,6 +76,7 @@ header .logo {
 	font-family: 'logo', serif;
 	font-size: 30px;
 	line-height: 50px;
+	font-weight: normal;
 
 	position: relative;
 	top: 3px;
@@ -283,6 +284,28 @@ header .logo {
 	line-height: 345px;
 
 	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+	text-align: center;
+
+	transform: translate3d(800px,0,0);
+}
+
+.movie .fa:hover{
+	color:#30e3a3;
+}
+
+.movie .color-bg{
+	font-size: 60px;
+	line-height: 345px;
+
+	position: absolute;
 	z-index: 3;
 	top: 0;
 	left: 0;
@@ -294,13 +317,20 @@ header .logo {
 	text-align: center;
 
 	transform: translate3d(800px,0,0);
-	background-color: rgba(220,20,190,.8);
+	background-color: rgba(120,20,190,.8);
 }
 
+.movie .fa{
+	color: white;
+	transition: all .5s ease;
+	text-shadow:0 1px 3px rgba(0,0,0,0.5);
+}
+
+.movie:hover .color-bg,
 .movie:hover .movie-mpa,
 .movie:hover .rating,
 .movie:hover .play {
-	  transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
 }
 
 .movie:hover .bg {
@@ -322,7 +352,7 @@ header .logo {
 	height: 100%;
 	padding: 10px;
 
-	transition: all .5s ease;
+	transition: all .8s ease;
 	text-align: center;
 
 	text-shadow: 0 1px 0 #000;

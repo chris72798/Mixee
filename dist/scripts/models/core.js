@@ -7,31 +7,46 @@
         return;
     };
 
-    var stack = $.model.stack ={
+    var veilModel;
+    var stack ={
+        items:[],
     	data:[],
     	empty:[],
     	out:[],
     	height:{}
     };
 
+    $.model.stack=stack;
+
+    function scrollRAF(){
+        var sheight = $('#app').scrollHeight;
+        var height = $('#app').offsetHeight;
+        var loadmore;
+
+        if (sheight == height || sheight + 200 > height) {
+            loadmore = $('.loadMore')[0];
+            if (loadmore) {
+                loadmore.click();
+            }
+        }
+        if($('#movieList')){
+            stack.scroll_container=$('#app');
+            stack.container=$('#movieList');
+            (function(){
+                veilModel(stack,sheight,height,345);
+                sheight=null;
+                sheight=null;
+                return false;
+            }).raf();
+        }
+    }
+
     //main app functions
     var app = $.model('app', {
         url: '',
         page: 1,
         scroll: function() {
-            var sheight = $('#app').scrollHeight;
-            var height = $('#app').offsetHeight;
-            if (sheight == height || sheight + 200 > height) {
-                var loadmore = $('.loadMore')[0];
-                if (loadmore) {
-                    loadmore.click();
-                }
-            }
-            if($('#movieList')){
-            	stack.scroll_container=$('#app');
-            	stack.container=$('#movieList');
-            	//$.model.veil(stack);
-            }
+            scrollRAF.raf();
         }.debounce(300),
         header: function() {
             $('#app').scrollTop = 0;
@@ -143,18 +158,18 @@
                 viewbottom = d.bottom,
                 eltop = e.top,
                 elbottom = e.bottom,
-                elmid = Math.round(((elbottom - eltop) / 2)+eltop),
+                elmid = Math.round(((elbottom - eltop) / 2)),
                 option = eltop >= viewtop;
 
             return (elbottom <= viewbottom && (option || elbottom >= viewtop)) || (eltop <= viewbottom && (option || elmid >= viewtop));
         }
 
-        function getviewborders(e) {
+        function getviewborders(e,oh) {
             var ot = e.offsetTop,
-                oh = e.offsetHeight,
-                padding = oh * 3,
-                docViewTop = e.scrollTop - ot - padding,
-                docViewBottom = docViewTop + oh + ot + padding;
+                oh = oh || e.offsetHeight,
+                padding = 0,
+                docViewTop = e.scrollTop - ot,
+                docViewBottom = docViewTop + oh + ot;
             if (docViewTop < 0) {
                 var docViewTop = 0;
             }
@@ -165,9 +180,9 @@
             };
         }
 
-        function getelborder(e) {
+        function getelborder(e,height) {
             var t = e.offsetTop,
-                h = e.offsetHeight,
+                h = height || e.offsetHeight,
                 b = h + t;
 
             return {
@@ -177,12 +192,13 @@
             };
         }
 
-        $.model('veil', function(stack) {
+        veilModel=$.model('veil', function(stack,sheight,height,boxHeight) {
 
-        	var e=$.model.stack.items;
-            var len = e.length;
+        	var e=stack.items;
+            var len = stack.len;
+            var viewthis;
             
-            var d = getviewborders(stack.scroll_container),
+            var d = getviewborders(stack.scroll_container,height),
                 containertop = stack.container.offsetTop;
 
             if (d.top < containertop) {
@@ -194,10 +210,10 @@
 
             for (var i = 0; i < len; i++) {
                 var item = e[i];
+                viewthis=getelborder(item,boxHeight);
 
-
-                if ( viewable(d, getelborder(item))) {
-                    item.classList.remove('visible');
+                if (viewable(d, viewthis)) {
+                    item.style.visibility='visible';
                 } else {
                     item.style.visibility='hidden';
                 }

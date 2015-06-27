@@ -3,6 +3,7 @@
 	var moviesBuild = $.view('movie');
 	var loadMore=$.view('loadMore');
 	var app=$.model('app');
+	var stack=$.model.stack;
 	var html=$.toDOM('<div id="wrap_outter_movies" class="page"></div>',0);
 	var locationNode=$.toDOM('<div class="location"></div>',0);
 	var moviesNode=$.toDOM('<div id="movieList" class="movies clearfix trans-all"></div>',0);
@@ -35,7 +36,10 @@
 					var movies=data.movies;
 					var frag=$.frag();
 					movies.each(function(item,i){
-						frag.ap(moviesBuild(item));
+						var node=moviesBuild(item);
+						stack.items.push(node);
+						stack.len++;
+						frag.ap(node);
 					});
 
 					if((data.limit*data.page_number) < data.movie_count){
@@ -52,6 +56,8 @@
 			var data=$.model('pages')[node.tc()];
 
 			locationNode.tc(location);
+			stack.items=[];
+			stack.len=0;
 
 			moviesNode.clear();
 
@@ -65,7 +71,10 @@
 					var movies=data.movies;
 					var frag=$.frag();
 					movies.each(function(item,i){
-						frag.ap(moviesBuild(item));
+						var node=moviesBuild(item);
+						stack.items.push(node);
+						stack.len++;
+						frag.ap(node);
 					});
 
 					if((data.limit*data.page_number) < data.movie_count){
@@ -75,7 +84,6 @@
 
 					$('#movieList').ap(frag);
 
-					$.model.stack.items=$cls('scroll_box');
 				}
 			});
 
