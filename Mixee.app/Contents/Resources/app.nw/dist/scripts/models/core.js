@@ -48,7 +48,7 @@
         page: 1,
         scroll: function() {
             scrollRAF.raf();
-        }.debounce(300),
+        }.debounce(500),
         header: function() {
             $('#app').scrollTop = 0;
         },

@@ -5,7 +5,9 @@
 
     function buildMovieTemplate(data, node) {
     	movies[data.title] = data;
-        node.attr('data-magnet', data.torrents[0].url);
+        if(data.torrents[0]){
+            node.attr('data-magnet', data.torrents[0].url);
+        }
         node.attr('data-movie', data.title);
         node.attr('data-tooltip', data.title_long);
         node.cl('data-movie', animaions.sample());
@@ -23,7 +25,7 @@
         <div class="movie-mpa" alt="Genre, Runtime & Size"></div>\
         <div class="gloss"></div>\
 		<div class="bg"></div>\
-		</div>', 0)
+		</div>', 0);
 
     //movie faceplate
     var movieTemplate = $.view('movie', movieNode, buildMovieTemplate);
