@@ -1,0 +1,404 @@
+@font-face {
+	font-family: logo;
+
+	src: url(AROLY.ttf);
+}
+
+body,
+html {
+	font-family: 'Open Sans', sans-serif;
+
+	position: absolute;
+
+	overflow: hidden;
+
+	width: 100%;
+	height: 100%;
+
+	background-color: #181b26;
+}
+
+.left {
+	float: left;
+}
+
+header .bar-btn {
+	font-size: 24px;
+	line-height: 50px;
+
+	float: right;
+
+	height: 50px;
+	padding: 0 10px;
+
+	transition: all .5s ease;
+}
+
+.logo:hover,
+header .bar-btn:hover {
+	color: #f36;
+}
+
+
+.bar-btn i {
+	line-height: 45px;
+}
+
+#iframeVideo {
+	padding: 0;
+
+	background-color: #fff;
+	background-image: url(/warp.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#iframe {
+	padding: 0;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+
+	cursor: pointer;
+
+	color: #fff;
+	background-color: #1f2432;
+	box-shadow: 0 1px 13px 0 rgba(0,0,0,.70),0 1px 0 0 rgba(0,0,0,.14),inset 0 -2px 0 rgba(0,0,0,.34);
+	text-shadow: 0 3px 0 rgba(0,0,0,.3);
+}
+
+header .logo {
+	font-family: 'logo', serif;
+	font-size: 30px;
+	line-height: 50px;
+
+	position: relative;
+	top: 3px;
+
+	display: block;
+	float: left;
+
+	margin-top: 0;
+	padding: 0 8px;
+
+	cursor: pointer;
+	text-align: left;
+
+	text-shadow: 0 3px 0 rgba(0,0,0,.3);
+}
+
+.desktop .scroll::-webkit-scrollbar {
+	width: 6px;
+
+	cursor: pointer;
+}
+
+.desktop .scroll.thin::-webkit-scrollbar {
+	width: 3px;
+
+	cursor: pointer;
+}
+
+.desktop .scroll::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background: #30e3a3;
+}
+
+.desktop .scroll::-webkit-scrollbar-track {
+	background: rgba(255,255,255,.15);
+}
+
+.loadMore {
+	display: block;
+	float: left;
+
+	width: 100%;
+	margin-top: 20px;
+	padding: 10px;
+
+	cursor: pointer;
+	text-align: center;
+
+	border-radius: 5px;
+	background: #30e3a3;
+	box-shadow: inset 0 -3px 0 rgba(0,0,0,.3), inset 0 0 0 1px rgba(0,0,0,1),inset 0 0 0 2px rgba(255,255,255,.6);
+	text-shadow: 0 1px 0 rgba(255,255,255,.5),0 2px 0 rgba(255,255,255,.4),0 3px 3px rgba(0,0,0,.8);
+}
+
+.loadMore:hover{
+	background:#f36;
+	box-shadow: inset 0 -3px 0 rgba(0,0,0,.3), inset 0 0 0 1px rgba(0,0,0,1),inset 0 0 0 2px rgba(255,255,255,.3);
+}
+
+
+.main-wrap {
+	position: absolute;
+	top: 50px;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	width: 100%;
+	height: calc(100% - 50px);
+
+	color: #fff;
+}
+
+.page{
+	padding:30px;
+}
+
+.cta {
+	font-family: 'Lora', serif;
+	font-size: 30px;
+
+	padding: 10px;
+
+	text-align: center;
+
+	border: 1px solid #fff;
+	border-radius: 5px;
+}
+
+.cta-wrap {
+	width: 100%;
+
+	text-align: center;
+}
+
+.menu-list {
+	width: 100%;
+	margin: 0 auto;
+
+	list-style: none;
+	list-style-image: none;
+}
+
+.menu-list .menu-item {
+	position: relative;
+	overflow: hidden;
+	font-size: 28px;
+
+
+
+	padding: 60px 20px;
+
+	cursor: pointer;
+	transition: all .5s ease;
+	text-align: center;
+
+	background-clip: padding-box;
+	float: left;
+}
+
+.menu-list .menu-item .bg {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+
+	background-position: center center;
+	background-size: cover;
+}
+
+.menu-list .menu-item .title-wrap {
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+}
+
+.menu-list .menu-item:hover .bg {
+	transform: scale(1.2,1.2);
+}
+
+.menu-list .menu-item .gloss {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+
+	background: linear-gradient(to bottom, rgba(231,244,243,.2) 0%,rgba(231,244,243,0) 96%,rgba(231,244,243,0) 100%);
+	background-size: cover;
+	box-shadow: inset 0 0 80px 0 rgba(0,0,0,.9), inset 0 0 0 1px rgba(0,0,0,1),inset 0 0 0 2px rgba(255,255,255,.2);
+}
+
+.menu-list .menu-item:hover .gloss {
+	background: linear-gradient(to bottom, rgba(231,244,243,.02) 0%,rgba(231,244,243,0) 96%,rgba(231,244,243,0) 100%);
+	box-shadow: inset 0 0 80px 0 rgba(0,0,0,.2), inset 0 0 0 1px rgba(0,0,0,1),inset 0 0 0 2px rgba(255,255,255,.2);
+}
+
+.menu-list .menu-item .title {
+	font-family: 'Arvo', serif;
+	font-weight: 700;
+	line-height: normal;
+
+	display: inline-block;
+
+	padding: 45px;
+
+	text-align: center;
+	vertical-align: middle;
+
+	text-shadow: 0 1px 5px rgba(0,0,0,.8);
+}
+
+.menu-list .menu-item:hover {
+}
+
+.location {
+	font-family: 'Arvo', serif;
+
+	padding: 13px;
+
+	box-shadow: 0 1px 0 0 rgba(255,255,255,.04),inset 0 -1px 0 0 rgba(0,0,0,.5);
+}
+
+.movies {
+	padding-top: 30px;
+}
+
+.movie .play {
+	font-size: 60px;
+	line-height: 345px;
+
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+	text-align: center;
+
+	transform: translate3d(800px,0,0);
+	background-color: rgba(220,20,190,.8);
+}
+
+.movie:hover .movie-mpa,
+.movie:hover .rating,
+.movie:hover .play {
+	  transform: translate3d(0,0,0);
+}
+
+.movie:hover .bg {
+	transform: scale(1.2,1.2);
+}
+
+.movie .rating {
+	font-family: 'Lora', serif;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1.5;
+
+	position: absolute;
+	z-index: 4;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+
+	transition: all .5s ease;
+	text-align: center;
+
+	text-shadow: 0 1px 0 #000;
+	transform: translate3d(-800px,0,0);
+}
+
+.movie .movie-mpa {
+	font-family: 'Lora', serif;
+	font-size: 16px;
+	line-height: 1.5;
+
+	position: absolute;
+	z-index: 4;
+	bottom: 0;
+	left: 0;
+
+	width: 100%;
+	padding: 10px;
+
+	transition: all .5s ease;
+	text-align: center;
+
+	text-shadow: 0 1px 0 #000;
+	transform: translate3d(0,800px,0);
+}
+
+
+.movie {
+	position: relative;
+
+	float: left;
+	overflow: hidden;
+
+	width: 230px;
+	height: 345px;
+
+	cursor: pointer;
+}
+
+.movie .bg {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+
+	background-position: center center;
+}
+
+.movie .gloss {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	transition: all .5s ease;
+
+	background: linear-gradient(to bottom, rgba(231,244,243,.2) 0%,rgba(231,244,243,0) 96%,rgba(231,244,243,0) 100%);
+	box-shadow: inset 0 0 80px 0 rgba(0,0,0,.9), inset 0 0 0 1px rgba(0,0,0,1),inset 0 0 0 2px rgba(255,255,255,.3);
+}
+
+.movie:hover .gloss {
+	background: linear-gradient(to bottom, rgba(231,244,243,.02) 0%,rgba(231,244,243,0) 96%,rgba(231,244,243,0) 100%);
+	box-shadow: inset 0 0 80px 0 rgba(0,0,0,.2), inset 0 0 0 1px rgba(0,0,0,1),inset 0 0 0 2px rgba(255,255,255,.2);
+}
+
+.clearfix:after {
+	display: table;
+	clear: both;
+
+	content: '';
+}
